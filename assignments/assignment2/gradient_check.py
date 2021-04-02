@@ -27,10 +27,16 @@ def check_gradient(f, x, delta=1e-5, tol=1e-4):
     while not it.finished:
         ix = it.multi_index
         analytic_grad_at_ix = analytic_grad[ix]
-        numeric_grad_at_ix = 0
+        x[ix] += delta
+        val1 = f(x)[0]
+        x[ix] -= 2*delta
+        val2 = f(x)[0]
+        
+        
+        numeric_grad_at_ix = (val1-val2) / (2*delta)
 
         # TODO Copy from previous assignment
-        raise Exception("Not implemented!")
+        #raise Exception("Not implemented!")
 
         if not np.isclose(numeric_grad_at_ix, analytic_grad_at_ix, tol):
             print("Gradients are different at %s. Analytic: %2.5f, Numeric: %2.5f" % (
