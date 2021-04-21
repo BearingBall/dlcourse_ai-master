@@ -113,3 +113,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 *.mat
+assignments/assignment4/test_kaggle/10000.jpg
